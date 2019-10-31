@@ -33,9 +33,9 @@ class App extends Component {
 
   listView(data, index){
     return (
-      <div className="row">
+      <div className="row" key={index}>
         <div className="col-md-10">
-          <li key={index} className="list-group-item clearfix">
+          <li className="list-group-item clearfix">
             {data.name}
           </li>
         </div>
