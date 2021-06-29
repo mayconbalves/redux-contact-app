@@ -10,15 +10,11 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
      
-    this.state = {
-      name: ''
-    }
+    this.state = { name: '' }
   }
 
   handleChange(e){
-    this.setState({
-      name: e.target.value
-    })
+    this.setState({ name: e.target.value })
   }
 
   handleSubmit(e){
@@ -38,7 +34,10 @@ class App extends Component {
           </li>
         </div>
         <div className="col">
-          <button onClick={(e) => this.deleteContact(e, index)} className="btn btn-danger">
+          <button
+            onClick={(e) => this.deleteContact(e, index)}
+            className="btn btn-danger"
+          >
             Remove
           </button>
         </div>
@@ -58,8 +57,8 @@ class App extends Component {
         <h1>Clientside Contacts Application</h1>
         <hr />
         <div>
-          <h3>Add Contact Form</h3>
-          <form onSubmit={this.handleSubmit}>
+          <h3 className='form-title'>Add Contact Form</h3>
+          <form onSubmit={this.handleSubmit} className="form">
             <input type="text" onChange={this.handleChange} className="form-control" value={this.state.name}/><br />
             <input type="submit" className="btn btn-success" value="ADD"/>
           </form>
@@ -73,17 +72,17 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
     contacts: state.contacts
   }
-};
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     createContact: contact => dispatch(contactAction.createContact(contact)),
-    deleteContact: index =>dispatch(contactAction.deleteContact(index))
+    deleteContact: index => dispatch(contactAction.deleteContact(index))
   }
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App)

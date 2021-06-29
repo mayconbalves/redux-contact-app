@@ -11,3 +11,20 @@
 .col li {
   list-style-type: none;
 }
+
+h1 {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.form-title {
+  text-align: center;
+}
+
+.btn, .btn-success {
+  margin: 0 10px;
+}
