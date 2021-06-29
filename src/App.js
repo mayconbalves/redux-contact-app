@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as contactAction from './actions/contactAction';
+import React, { Component } from 'react'
+import './App.css'
+import { connect } from 'react-redux'
+import * as contactAction from './actions/contactAction'
 
 class App extends Component {
 
@@ -22,24 +23,21 @@ class App extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-    let contact = {
-      name: this.state.name
-    }
-    this.setState({
-      name: ''
-    });
-    this.props.createContact(contact);
+    let contact = { name: this.state.name }
+    
+    this.props.createContact(contact)
+    this.setState({ name: '' })
   }
 
   listView(data, index){
     return (
       <div className="row" key={index}>
-        <div className="col-md-10">
+        <div className="col">
           <li className="list-group-item clearfix">
             {data.name}
           </li>
         </div>
-        <div className="col-md-2">
+        <div className="col">
           <button onClick={(e) => this.deleteContact(e, index)} className="btn btn-danger">
             Remove
           </button>
