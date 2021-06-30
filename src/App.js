@@ -54,7 +54,7 @@ class App extends Component {
 
     return(
       <div className="container">
-        <h1>Clientside Contacts Application</h1>
+        <h1>Busque por seus repositórios git</h1>
         <hr />
         <div>
           <h3 className='form-title'>Add Contact Form</h3>
