@@ -15,6 +15,7 @@ const GlobalStyles = createGlobalStyle`
   }
   html, body {
     background-color: rgb(31, 27, 36);
+    color: #fff;
     height: 100%;
   }
   body {
