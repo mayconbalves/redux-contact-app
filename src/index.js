@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import store from 'store/store'
+import store from './store/configureStore'
 import { createGlobalStyle } from 'styled-components'
 import Routers from './Routers'
 
@@ -34,6 +34,7 @@ const GlobalStyles = createGlobalStyle`
 
 ReactDOM.render(
   <React.StrictMode>
+    <GlobalStyles />
     <Routers store={store} />
   </React.StrictMode>,
   document.getElementById('root')
