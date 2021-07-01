@@ -11,17 +11,9 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action) {
     case GET_REPOSITORY_SUCCESS:
-      return {
-        ...state,
-        repositories: action.payload,
-        error: null
-      }
+      
     case GET_REPOSITORY_ERROR:
-      return {
-        ...state,
-        repositories: [],
-        error: action.payload
-      }
+      
     default:
       return state
   }
