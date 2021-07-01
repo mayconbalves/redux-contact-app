@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import Input from 'components/input'
 import Button from 'components/button'
 import * as S from './styled'
 
 const Login = () => {
   const [values, setValues] = useState({ username: '' })
+  const history = useHistory()
 
   const inputChange = e => {
   }
 
   const submitForm = () => {
+    history.push('/home')
   }
 
   return (

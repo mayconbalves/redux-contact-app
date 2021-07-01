@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
+import repositoryReducers from 'pages/home/reducers'
 
 const rootReducer = combineReducers({
-  // all reducers
+  repositoryReducers
 })
 
 export default rootReducer
