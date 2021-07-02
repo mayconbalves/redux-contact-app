@@ -7,6 +7,7 @@ import Login from './pages/login'
 import Home from './pages/home'
 
 const Routers = ({ store }) => {
+  console.log(store, 'store')
   return (
     <Provider store={store}>
       <BrowserRouter>
