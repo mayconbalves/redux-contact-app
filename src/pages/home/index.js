@@ -7,17 +7,24 @@ import { fetchRepositories } from './actions'
 
 const Home = () => {
   const dispatch = useDispatch()
+  const repositories = useSelector(state => state.repositoryReducers.repositories)
   const [values, setRepository] = useState({ repository: ''})
 
   const inputChange = e => {
+    const { name, value } = e.target
+
+    setRepository({
+      ...values,
+      [name]: value
+    })
   }
   
   const submitForm = () => {
-    dispatch(fetchRepositories('mayconbalves'))
+    const { repository } = values
+    dispatch(fetchRepositories(repository))
   }
 
-  const allRepositories = []
-
+  const allRepositories = repositories || []
   return (
     <>
       <S.Container>
@@ -25,7 +32,7 @@ const Home = () => {
         <h1>Digite seu nome de usuário</h1>
         <Input
           onChange={inputChange}
-          name="username"
+          name="repository"
           value={values.repository}
           placeholder="Digite o seu usuário"
         />
@@ -46,9 +53,16 @@ const Home = () => {
           </S.Tr>
         </thead>
         <tbody>
-          <S.Tr>
-            <td>React</td>
-          </S.Tr>
+          {
+            allRepositories.map(repo => {
+              console.log(repo, 'repo')
+              return (
+                <S.Tr key={repo.id}>
+                <td>{repo.name}</td>
+              </S.Tr>
+              )
+            })
+          }
         </tbody>
       </S.Table>
     </S.Container>

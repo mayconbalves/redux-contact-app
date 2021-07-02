@@ -6,12 +6,19 @@ import * as S from './styled'
 
 const Login = () => {
   const [values, setValues] = useState({ username: '' })
+  
   const history = useHistory()
 
   const inputChange = e => {
+    const { name, value } = e.target
+
+    setValues({
+      ...values,
+      [name]: value
+    })
   }
 
-  const submitForm = () => {
+  const submitForm = async () => {
     history.push('/home')
   }
 
@@ -26,6 +33,7 @@ const Login = () => {
           placeholder="Digite o seu usuário"
         />
         <Button
+          disabled={values.username.length < 1}
           onClick={submitForm}
           type="button"
           backgroundColor="#03dac5"
